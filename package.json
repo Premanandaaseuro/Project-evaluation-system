@@ -1,0 +1,22 @@
+{
+  "name": "project-evaluation-system",
+  "version": "1.0.0",
+  "description": "Project Evaluation & Automated Testing System",
+  "scripts": {
+    "start": "docker compose up --build",
+    "docker": "docker compose up --build",
+    "docker:down": "docker compose down",
+    "backend": "cd backend && mvn spring-boot:run -Dspring-boot.run.profiles=h2",
+    "frontend": "cd frontend && npm run dev",
+    "test:workflow": "node test_workflow.mjs"
+  },
+  "keywords": [
+    "project-evaluation",
+    "automated-grading",
+    "spring-boot",
+    "react",
+    "docker"
+  ],
+  "author": "",
+  "license": "MIT"
+}

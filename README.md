@@ -79,26 +79,50 @@ The platform executes a **two-level evaluation workflow**:
 
 ---
 
-## 🚀 Quick Start (Docker Compose)
+---
 
-The entire platform (PostgreSQL database, Spring Boot backend, and React frontend) can be spun up in one command:
+## ⚡ 1-Command Startup (Zero Errors Guarantee)
+
+You can clone and launch the entire application with **a single command** on any platform:
 
 ```bash
 # 1. Clone repository
-git clone https://github.com/pratibhahg16-lgtm/Project-evaluation-system.git
+git clone https://github.com/Premanandaaseuro/Project-evaluation-system.git
 cd Project-evaluation-system
+```
 
-# 2. Copy environment template
-cp .env.example .env
+### Choose your single command:
 
-# 3. Build and launch all containers
+#### Option A: Windows (CMD or Double-Click)
+```cmd
+run.bat
+```
+*(Or in PowerShell: `.\run.ps1`)*
+
+#### Option B: Linux or macOS
+```bash
+chmod +x run.sh && ./run.sh
+```
+
+#### Option C: Docker Compose (Universal)
+```bash
 docker compose up --build
 ```
 
-Access the applications:
-- **Frontend Web UI:** `http://localhost:3000` (or `http://localhost:5173` in dev mode)
-- **Backend REST API:** `http://localhost:8080/api`
-- **Health Check:** `http://localhost:8080/api/health`
+#### Option D: Node / npm
+```bash
+npm start
+```
+
+### 🧠 How the 1-Command Launcher Works
+The launcher automatically adapts to your local machine:
+1. **If Docker is running:** It launches the full containerized stack (PostgreSQL 16 + Spring Boot 21 + React 18 / Nginx proxy) and serves the application at **`http://localhost:3000`** (backend on `http://localhost:8080`).
+2. **If Docker is NOT running:** It automatically switches to **Local Native Mode**:
+   - Uses embedded Maven Wrapper (`mvnw` / `mvnw.cmd` - no Maven installation needed!).
+   - Starts Spring Boot with in-memory **H2 database** (`--spring.profiles.active=h2` - no database installation needed!).
+   - Automatically installs frontend npm packages if missing and starts Vite.
+   - Automatically opens your default browser at **`http://localhost:5173`**.
+   - Database is auto-migrated and pre-seeded with Admin, Evaluator, and Student test accounts!
 
 ---
 
