@@ -1,0 +1,52 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: project-evaluation-backend
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:postgres}
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+      enabled: true
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970}
+    expiration-ms: 86400000 # 24 hours
+  sandbox:
+    workspace-dir: ${SANDBOX_DIR:./eval-workspace}
+    timeout-seconds: 120
+    memory-limit: 512m
+    cpu-limit: 1.0
+  seed:
+    admin:
+      email: admin@projecteval.com
+      password: Admin@123
+      username: admin
+      name: System Administrator
+    evaluator:
+      email: evaluator@projecteval.com
+      password: Evaluator@123
+      username: evaluator
+      name: Dr. Robert Evaluator
+      department: Computer Science
+      employee-code: EVAL-001
+    student:
+      email: student@projecteval.com
+      password: Student@123
+      username: student
+      name: Alex Student
+      department: Computer Science
+      student-code: STU-2026-001
+      semester: 8
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

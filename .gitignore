@@ -1,0 +1,35 @@
+# Maven
+target/
+*.class
+*.jar
+*.war
+*.ear
+backend/target/
+eval-workspace/
+uploads/
+
+# Node
+node_modules/
+frontend/node_modules/
+frontend/dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment
+.env
+.env.local
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS
+.DS_Store
+Thumbs.db
